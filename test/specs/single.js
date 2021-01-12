@@ -28,6 +28,8 @@ describe('BrowserStack Local Testing', function() {
           browser.pause(3000)
 
         }
+    }else{
+      browser.saveScreenshot('./screenshots/'+browser.capabilities.browserName+'test.png')
     }
   });
 });
