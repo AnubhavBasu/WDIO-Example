@@ -5,7 +5,7 @@ let {exec} = require('child_process');
 
 
 console.log('ENVIRONMENT: ', process.env.ENVIRONMENT)
-if(process.env.ENVIRONMENT=='BS'){
+if(process.env.ENVIRONMENT=='BStack'){
     series([  () => exec('npm run single')]);
 }
 else{

@@ -1,4 +1,5 @@
 var browserstack = require('browserstack-local');
+
 exports.config = {
     user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
     key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACC_KEY',
@@ -20,17 +21,18 @@ exports.config = {
       browser: 'chrome'
     },{
       browser: 'firefox'
-    },{
-      browser: 'internet explorer'
-    },{
-      browser: 'safari'
-    }],
+    },//{
+    //   browser: 'internet explorer'
+    // },{
+    //   browser: 'safari'
+    // }
+],
   
     logLevel: 'warn',
     coloredLogs: true,
     screenshotPath: './errorShots/',
     baseUrl: '',
-    waitforTimeout: 10000,
+    waitforTimeout: 100000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
     host: 'hub.browserstack.com',
@@ -50,7 +52,7 @@ exports.config = {
         console.log("Connecting local");
         return new Promise(function (resolve, reject) {
         exports.bs_local = new browserstack.Local();
-        exports.bs_local.start({ 'key': exports.config.key }, function (error) {
+        exports.bs_local.start({ 'key': exports.config.key }, function (error) {    
             if (error) return reject(error);
 
             console.log('Connected. Now testing...');
@@ -58,6 +60,13 @@ exports.config = {
         });
         });
     },
+    // Initializing Percy
+    // before: function (capabilities, specs) {
+    //     // Import percySnapshot function
+    //     const { percySnapshot } = require('@percy/webdriverio');
+    //     // Make percySnapshot available as a global variable in all wdio tests
+    //     global.percySnapshot = percySnapshot;
+    // },
 
     // Code to stop browserstack local after end of test
     onComplete: function (capabilties, specs) { 

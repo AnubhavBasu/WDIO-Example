@@ -17,6 +17,7 @@
     "webdriverio": "^6.11.3"
   },
   "devDependencies": {
+    "@percy/webdriverio": "^1.0.4",
     "@wdio/local-runner": "^6.11.3",
     "@wdio/mocha-framework": "^6.11.0",
     "@wdio/selenium-standalone-service": "^6.11.0",
