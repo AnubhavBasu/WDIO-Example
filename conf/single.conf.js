@@ -37,11 +37,9 @@ exports.config = {
     connectionRetryCount: 3,
     host: 'hub.browserstack.com',
     
-    before: function () {
-      var chai = require('chai');
-      global.expect = chai.expect;
-      chai.Should();
-    },
+    // before: function () {
+
+    // },
     framework: 'mocha',
     mochaOpts: {
         ui: 'bdd',
@@ -61,12 +59,15 @@ exports.config = {
         });
     },
     // Initializing Percy
-    // before: function (capabilities, specs) {
-    //     // Import percySnapshot function
-    //     const { percySnapshot } = require('@percy/webdriverio');
-    //     // Make percySnapshot available as a global variable in all wdio tests
-    //     global.percySnapshot = percySnapshot;
-    // },
+    before: function (capabilities, specs) {
+        var chai = require('chai');
+        global.expect = chai.expect;
+        chai.Should();
+        // Import percySnapshot function
+        const { percySnapshot } = require('@percy/webdriverio');
+        // Make percySnapshot available as a global variable in all wdio tests
+        global.percySnapshot = percySnapshot;
+    },
 
     // Code to stop browserstack local after end of test
     onComplete: function (capabilties, specs) { 

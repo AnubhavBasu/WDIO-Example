@@ -1,4 +1,5 @@
 exports.config = {
+    envrn: process.env.ENVIRONMENT,
     //
     // ====================
     // Runner Configuration
@@ -43,12 +44,10 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/single.js'
+        './test/specs/**/single.js'
     ],
     // Patterns to exclude.
-    exclude: [
-        './test/specs/execute.mjs'
-    ],
+    exclude: [],
     //
     // ============
     // Capabilities
@@ -125,7 +124,7 @@ exports.config = {
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 100000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -213,8 +212,16 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    // Initializing Percy
+    before: function (capabilities, specs) {
+        var chai = require('chai');
+        global.expect = chai.expect;
+        chai.Should();
+        // Import percySnapshot function
+        const { percySnapshot } = require('@percy/webdriverio');
+        // Make percySnapshot available as a global variable in all wdio tests
+        global.percySnapshot = percySnapshot;
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
