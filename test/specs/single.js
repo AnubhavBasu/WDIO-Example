@@ -19,7 +19,8 @@ describe('BrowserStack Local Testing', function() {
       browser.getTitle().should.match(/Jenkins/i);
       console.log('Validating Test');
       console.log('Taking Local SS');
-      browser.saveScreenshot('./screenshots/'+browser.capabilities.browserName+'test.png');
+      let timestamp = Date.now().toString();
+      browser.saveScreenshot('./screenshots/'+browser.capabilities.browserName+timestamp+'test.png');
     }
     if(process.env.ENVIRONMENT=='BStack') {
         console.log('Marking on BStack')
@@ -38,7 +39,8 @@ describe('BrowserStack Local Testing', function() {
     }
     else {
       console.log('Taking Local ScreenShots', process.env.ENVIRONMENT);
-      browser.saveScreenshot('./screenshots/'+browser.capabilities.browserName+'test.png');
+      let timestamp = Date.now().toString();
+      browser.saveScreenshot('./screenshots/'+browser.capabilities.browserName+timestamp+'test.png');
     }
     
   });
