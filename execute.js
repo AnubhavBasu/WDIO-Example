@@ -1,5 +1,5 @@
 const { exec } = require('child_process');
-if(process.env.CLOUD_ENV == 'BStack') {
+if(process.env.ENVIRONMENT == 'BStack') {
   console.log("BSTACK exec")
   exec('percy exec -- npm run single',
           (error, stdout, stderr) => {
