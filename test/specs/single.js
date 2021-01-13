@@ -10,7 +10,7 @@ describe('BrowserStack Local Testing', function() {
     console.log('Testing on: ', process.env.ENVIRONMENT);
 
     if (process.env.ENVIRONMENT=='BStack') {
-      let timestamp = Date.now().toString;
+      let timestamp = Date.now().toString();
       console.log('Taking PercySnapShot at: ',timestamp);
       percySnapshot(browser, browser.capabilities.browserName+"_"+timestamp);
       browser.getTitle().should.match(/Jenkins/i)
@@ -39,8 +39,8 @@ describe('BrowserStack Local Testing', function() {
     }
     else {
       console.log('Taking Local ScreenShots', process.env.ENVIRONMENT);
-      let timestamp = Date.now().toString();
-      browser.saveScreenshot('./screenshots/'+browser.capabilities.browserName+timestamp+'test.png');
+      //let timestamp = Date.now().toString();
+      //browser.saveScreenshot('./screenshots/'+browser.capabilities.browserName+timestamp+'test.png');
     }
     
   });

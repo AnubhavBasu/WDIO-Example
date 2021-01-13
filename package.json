@@ -31,10 +31,8 @@
     "wdio-chromedriver-service": "^6.0.4"
   },
   "scripts": {
-    "test": "npm run single && npm run execute",
-    "single": "percy exec -- npm run singl",
-    "singl": "./node_modules/.bin/wdio conf/single.conf.js",
-    "execute": "test/specs/execute.mjs"
+    "test": "npm run single && npm run singl",
+    "single": "./node_modules/.bin/wdio conf/single.conf.js"
   },
   "keywords": [],
   "author": "",

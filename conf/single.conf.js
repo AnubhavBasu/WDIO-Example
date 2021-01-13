@@ -13,7 +13,7 @@ exports.config = {
     maxInstances: 10,
     commonCapabilities: {
       name: 'parallel_local_test',
-      build: process.env.BROWSERSTACK_BUILD_NAME,
+      build: 'wido-browserstack',
       'browserstack.local': true
     },
   
