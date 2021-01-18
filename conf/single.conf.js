@@ -21,11 +21,18 @@ exports.config = {
       browser: 'chrome'
     },{
       browser: 'firefox'
-    },//{
-    //   browser: 'internet explorer'
-    // },{
-    //   browser: 'safari'
-    // }
+    },
+    {
+      "os_version" : "10.0",
+      "device" : "Samsung Galaxy Note 20 Ultra",
+      "real_mobile" : "true",
+      "browserName" : "Android"
+    },{
+      "os_version" : "14",
+      "device" : "iPhone 12 Mini",
+      "real_mobile" : "true",
+      "browserName" : "iPhone"
+    }
 ],
   
     logLevel: 'warn',
